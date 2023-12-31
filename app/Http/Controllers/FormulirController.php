@@ -88,4 +88,10 @@ class FormulirController extends Controller
         notify()->success('Berhasil disimpan!');
         return Redirect::route('sh_form');
     }
+
+    public function edit_form($id)
+    {
+        $data = Formulir::findOrFail($id);
+        return view('formulir.edit_form', compact('data'));
+    }
 }
