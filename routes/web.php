@@ -19,4 +19,5 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/formulir', [FormulirController::class, 'sh_form'])->name('sh_form');
+Route::get('/list', [FormulirController::class, 'list_daftar'])->name('list_daftar');
 Route::post('/formulir/save', [FormulirController::class, 'save_form'])->name('save_form');

@@ -14,19 +14,42 @@ class FormulirController extends Controller
         return view('formulir.form', compact('formulirs'));
     }
 
+
+    public function list_daftar()
+    {
+        $formulirs = Formulir::orderBy('created_at', 'desc')->paginate(10);
+        return view('formulir.list_pendaftar', compact('formulirs'));
+    }
+
+
     public function save_form(Request $request)
     {
         $request->validate([
             'nama_lengkap' => 'required',
-            'nik' => 'required',
+            'nik' => 'required|unique:formulirs,nik|max:16',
             'jabatan' => 'required',
             'instansi_id' => 'required',
             'unit_kerja' => 'required',
-            'no_hp' => 'required',
-            'per_email' => 'required',
-            'per_sertifikat' => 'required',
-            'rekomendasi' => 'required',
-            'sk' => 'required',
+            'no_hp' => 'required|max:12',
+            'per_email' => 'required|file|mimes:pdf,jpg,jpeg|max:2048',
+            'per_sertifikat' => 'required|file|mimes:pdf,jpg,jpeg|max:2048',
+            'rekomendasi' => 'required|file|mimes:pdf,jpg,jpeg|max:2048',
+            'sk' => 'required|file|mimes:pdf,jpg,jpeg|max:2048',
+        ],  [
+            'nama_lengkap.required' => 'nama lengkap sesuai KTP',
+            'jabatan.required' => 'jabatan wajib di isi',
+            'no_hp.required' => 'No Hp wajib di isi',
+            'nik.required' => 'NIK wajib di isi',
+            'unit_kerja.required' => 'wajib di isi',
+            'per_email.mimes' => 'File harus berformat PDF JPG JPEG',
+            'per_email.max' => 'Ukuran file tidak boleh lebih dari 2MB.',
+            'per_sertifikat.mimes' => 'File harus berformat PDF JPG JPEG',
+            'per_sertfikat.max' => 'Ukuran file tidak boleh lebih dari 2MB.',
+            'rekomendasi.mimes' => 'File harus berformat PDF JPG JPEG',
+            'rekomendasi.max' => 'Ukuran file tidak boleh lebih dari 2MB.',
+            'sk.mimes' => 'File harus berformat PDF JPG JPEG',
+            'sk.max' => 'Ukuran file tidak boleh lebih dari 2MB.',
+            'nik.unique' => 'NIK sudah ada dalam database'
         ]);
         //menyimpan file uplaod kedalam direktori
         $file = $request->file('per_email');

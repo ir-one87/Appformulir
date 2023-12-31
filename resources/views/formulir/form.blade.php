@@ -22,15 +22,15 @@
                                 <input type="text" class="form-control" placeholder="masukan nama lengkap"
                                     name="nama_lengkap">
                                 @error('nama_lengkap')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-info">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
                             <div class="form-group">
                                 <label>NIK / Nomor Induk Kependudukan<p class="d-inline text-danger"> *</p></label>
-                                <input type="number" class="form-control" placeholder="Masukan Nomor Kependudukan"
-                                    name="nik">
+                                <input type="number" class="form-control" id="nik"
+                                    placeholder="Masukan Nomor Kependudukan" name="nik">
                                 @error('nik')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -131,21 +131,21 @@
                             </div>
                         </div>
                         <div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-sm-2">
                                 <label>
                                     <input type="hidden" name="status" value="0" />
                                 </label>
                             </div>
                         </div>
                         <div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-sm-2">
                                 <label>
                                     <input type="hidden" name="status_berkas" value="0" />
                                 </label>
                             </div>
                         </div>
                         <div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-sm-2">
                                 <label>
                                     <input type="hidden" name="status_tte" value="0" />
                                 </label>
@@ -176,8 +176,8 @@
                             <th>Jabatan</th>
                             <th>Unit Kerja</th>
                             <th>Status Pendaftaran</th>
+                            <th>Status TTe</th>
                             <th>Status Berkas</th>
-                            <th>Status TTE</th>
 
                         </tr>
                     </thead>
@@ -188,9 +188,42 @@
                             <td>{{ $form->nama_lengkap }}</td>
                             <td>{{ $form->jabatan }}</td>
                             <td>{{ $form->unit_kerja }}</td>
-                            <td>{{ $form->nama_lengkap }}</td>
-                            <td>{{ $form->nama_lengkap }}</td>
-                            <td>{{ $form->nama_lengkap }}</td>
+                            <td>
+                                <label>
+                                    @if($form->status == 1)
+                                    <a href="https://mail.sulbarprov.go.id/"
+                                        class="btn btn-success btn-sm w-100 text-center text-white" target="_blank">
+                                        Silahkan Aktivasi
+                                    </a>
+                                    @else
+                                    <a href="https://chat.whatsapp.com/Jo9sF6r2wIj0UrjOCfvpSR"
+                                        class="btn btn-warning btn-sm w-100 text-center text-black" target="_blank">
+                                        Menunggu Konfirmasi
+                                    </a>
+                                    @endif
+                                </label>
+                            </td>
+                            <td>
+                                <label
+                                    class="btn {{ $form->status_tte == 1 ? 'btn-success btn-sm' : 'btn-warning btn-sm' }}">{{
+                                    $form->status_tte == 1 ? 'Sudah Terbit' : 'Belum Terbit' }}
+
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @if($form->status_berkas == 0)
+                                    <strong>Berkas Lengkap</strong>
+                                    @endif
+                                    @if($form->status_berkas == 1)
+                                    <a href="{{ route('edit_form', $form->id) }}"
+                                        class="btn btn-danger btn-sm w-100 text-center text-white" target="_blank">
+                                        Upload Kembali
+                                    </a>
+                                    @endif
+                                </label>
+                                <p>{{ $form->pesan }}</p>
+                            </td>
 
                         </tr>
                         @endforeach
@@ -202,5 +235,23 @@
 </div>
 
 <!-- Row end -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var previousValue = '';
+
+        function checkDuplicate() {
+            var currentValue = document.getElementById('nik').value;
+
+            if (currentValue === previousValue) {
+                alert('Inputan ganda terdeteksi!');
+            }
+
+            previousValue = currentValue;
+        }
+
+        document.getElementById('nik').addEventListener('input', checkDuplicate);
+    });
+</script>
 
 @endsection

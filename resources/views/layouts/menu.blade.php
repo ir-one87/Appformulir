@@ -17,7 +17,7 @@
             <div class="sidebar-submenu">
                 <ul>
                     <li>
-                        <a href="#">List Pendaftar</a>
+                        <a href="{{ route('list_daftar') }}">List Pendaftar</a>
                     </li>
                     <li>
                         <a href="#">Berkas TTE</a>
