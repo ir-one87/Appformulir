@@ -13,7 +13,7 @@ $(function () {
 $(function () {
     $("#copy-print-csv").DataTable({
         dom: "Bfrtip",
-        buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5", "print"],
+        buttons: ["excelHtml5", "csvHtml5", "print"],
         iDisplayLength: 10,
     });
 });

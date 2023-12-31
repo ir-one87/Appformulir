@@ -19,3 +19,4 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/formulir', [FormulirController::class, 'sh_form'])->name('sh_form');
+Route::post('/formulir/save', [FormulirController::class, 'save_form'])->name('save_form');
