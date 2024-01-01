@@ -25,7 +25,7 @@
                     <tbody>
                         @foreach ($formulirs as $form )
                         <tr>
-                            <td>1</td>
+                            <td>{{ $form->line_number }}</td>
                             <td>{{ $form->nama_lengkap }}</td>
                             <td>{{ $form->jabatan }}</td>
                             <td>{{ $form->instansi_id }}</td>

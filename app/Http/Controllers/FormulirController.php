@@ -13,6 +13,10 @@ class FormulirController extends Controller
     public function sh_form()
     {
         $formulirs = Formulir::all();
+        // Menambahkan nomor baris pada setiap elemen formulir
+        foreach ($formulirs as $key => $formulir) {
+            $formulir->line_number = $key + 1;
+        }
         return view('formulir.form', compact('formulirs'));
     }
 
@@ -20,6 +24,9 @@ class FormulirController extends Controller
     public function list_daftar()
     {
         $formulirs = Formulir::orderBy('created_at', 'desc')->paginate(10);
+        foreach ($formulirs as $key => $formulir) {
+            $formulir->line_number = $key + 1;
+        }
         return view('formulir.list_pendaftar', compact('formulirs'));
     }
 
