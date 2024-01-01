@@ -6,44 +6,33 @@
     <div class="col-12">
 
         <div class="table-container">
-            <div class="t-header" style="font-size: 1.5em; background-color: #cbe6f4; border-radius: 10px"> Berkas
-                Persyaratan
+            <div class="t-header" style="font-size: 1.5em; background-color: #cbe6f4; border-radius: 10px"> Organisasi
+                Perangkat Daerah
                 <a href="#" class="btn btn-primary btn-rounded float-end" data-bs-toggle="modal"
                     data-bs-target="#AddModal"><i class="icon-plus"></i> Tambah
-                    Berkas</a>
+                    Instansi</a>
             </div>
             <!-- Modal edit_kategori-->
-            @foreach ($berkas as $data )
-            <div class="modal fade" id="customModalEdit{{ $data->id }}" tabindex="-1" role="dialog"
+            @foreach ($dataopd as $item )
+            <div class="modal fade" id="customModalEdit{{ $item->id }}" tabindex="-1" role="dialog"
                 aria-labelledby="customModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="customModalLabel">Edit Berkas Persyaratan</h5>
+                            <h5 class="modal-title" id="customModalLabel">Edit Nama Organisasi Perangkat Daerah</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('update_berkas', $data) }}" method="post"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('update_opd', $item) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
                                 <div class="row gutters">
                                     <div class="col-sm-12 col-12">
                                         <div class="form-group">
                                             <label>Nama Berkas <p class="d-inline text-danger">*</p></label>
-                                            <input type="text" class="form-control" name="nama_berkas"
-                                                value="{{ $data->nama_berkas }}">
-                                            @error('nama_berkas')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-12">
-                                        <div class="form-group">
-                                            <label>File Upload <p class="d-inline text-danger">*</p></label>
-                                            <input type="file" class="form-control" name="file_berkas"
-                                                value="{{ $data->file_berkas }}">
-                                            @error('file_berkas')
+                                            <input type="text" class="form-control" name="nama_opd"
+                                                value="{{ $item->nama_opd }}">
+                                            @error('nama_opd')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -67,23 +56,23 @@
                 </div>
             </div>
             @endforeach
+
+
             <!-- Akhir Modal edit_kategori-->
             <div class=" table-responsive">
                 <table id="basicExample" class="table custom-table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Nama Berkas Persyaratan</th>
-                            <th>Nama File Berkas</th>
+                            <th>No</th>
+                            <th>Nama Organisasi Perangkat Daerah</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($berkas as $data )
+                        @foreach ($dataopd as $item )
                         <tr>
-                            <td>{{ $data->nomor }}</td>
-                            <td>{{ $data->nama_berkas }}</td>
-                            <td>{{ $data->file_berkas }}</td>
+                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->nama_opd }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
@@ -92,10 +81,10 @@
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-lg-right">
                                         <a href="" type="submit" class="dropdown-item" data-bs-toggle="modal"
-                                            data-bs-target="#customModalEdit{{ $data->id }}"><i class="icon-pencil"></i>
+                                            data-bs-target="#customModalEdit{{ $item->id }}"><i class="icon-pencil"></i>
                                             Edit</a>
 
-                                        <form id="hapusForm" action="{{ route('delete_berkas', $data) }}" method="POST">
+                                        <form id="hapusForm" action="{{ route('delete_opd', $item) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button type="button" onclick="konfirmasiHapus()" class="dropdown-item"><i
@@ -120,28 +109,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="customModalLabel">Tambah Berkas Persyaratan</h5>
+                <h5 class="modal-title" id="customModalLabel">Tambah Organisasi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('save_berkas') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('save_opd') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row gutters">
                         <div class="col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Nama Berkas <p class="d-inline text-danger">*</p></label>
-                                <input type="text" class="form-control" placeholder="masukan nama berkas"
-                                    name="nama_berkas">
-                                @error('nama_berkas')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-12">
-                            <div class="form-group">
-                                <label>File Upload <p class="d-inline text-danger">*</p></label>
-                                <input type="file" class="form-control" name="file_berkas">
-                                @error('file_berkas')
+                                <label>Nama Organisasi Perangkat Daerah<p class="d-inline text-danger">*</p></label>
+                                <input type="text" class="form-control" placeholder="masukan nama OPD" name="nama_opd">
+                                @error('nama_opd')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>

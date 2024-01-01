@@ -20,6 +20,16 @@ class BerkasController extends Controller
         return view('berkas.list_berkas', compact('berkas'));
     }
 
+    public function unduh_berkas()
+    {
+        $berkas = Berkas::all();
+        // Tambahkan nomor baris pada data
+        $berkas->each(function ($berkas, $index) {
+            $berkas->setAttribute('nomor', $index + 1);
+        });
+        return view('berkas.unduh_berkas', compact('berkas'));
+    }
+
     public function save_berkas(Request $request)
     {
         $request->validate([

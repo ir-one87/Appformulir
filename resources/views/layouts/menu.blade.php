@@ -34,7 +34,7 @@
             <div class="sidebar-submenu">
                 <ul>
                     <li>
-                        <a href="#">Data OPD</a>
+                        <a href="{{ route('sh_organisasi') }}">Data OPD</a>
                     </li>
                     <li>
                         <a href="#">List Akun OPD</a>
@@ -53,7 +53,7 @@
             </a>
         </li>
         <li>
-            <a href="contacts.html">
+            <a href="{{ route('unduh_berkas') }}">
                 <i class="icon-book"></i>
                 <span class="menu-text">Berkas Persyaratan</span>
             </a>
