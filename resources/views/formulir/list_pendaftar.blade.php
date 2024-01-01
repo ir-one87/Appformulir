@@ -61,11 +61,11 @@
                                     <div class="dropdown-menu dropdown-menu-lg-right">
                                         <a href="#" type="button" class="dropdown-item"><i class="icon-eye1"></i>
                                             Show</a>
-                                        <a href="{{ route('edit_form', $form->id) }}" type="button"
-                                            class="dropdown-item"><i class="icon-pencil"></i>
+                                        <a href="{{ route('edit_form', $form) }}" type="button" class="dropdown-item"><i
+                                                class="icon-pencil"></i>
                                             Edit</a>
 
-                                        <form id="hapusForm" action="#" method="POST">
+                                        <form id="hapusForm" action="{{ route('delete_form', $form) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button type="button" onclick="konfirmasiHapus()" class="dropdown-item"><i

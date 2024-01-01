@@ -65,15 +65,17 @@
         <nav id="sidebar" class="sidebar-wrapper">
 
             <!-- Sidebar brand start  -->
-            <div class="sidebar-brand">
+            <div class="sidebar-brand"
+                style="display: flex; align-items: flex-end; justify-content: center; padding: 5px;">
                 <a href="index.html" class="logo">
-                    <img src="{{ asset('assets/img/logo.svg') }}" alt="Bootstrap Gallery" />
+                    <img src="{{ asset('assets/img/logo_sulbar.png') }}" alt="Bootstrap Gallery" />
+                    <h4 class="text-white">App Formulir</h4>
                 </a>
             </div>
             <!-- Sidebar brand end  -->
 
             <!-- Sidebar content start -->
-            <div class="sidebar-content">
+            <div class=" sidebar-content">
 
                 <!-- sidebar menu start -->
                 @include('layouts.menu')

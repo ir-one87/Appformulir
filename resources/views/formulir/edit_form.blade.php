@@ -12,8 +12,9 @@
                     <h3>Formulir Pendaftaran SE</h3>
                 </div>
             </div>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{ route('update_form', $data) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('patch')
                 <div class="card-body">
                     <div class="row gutters">
                         <div class="col-sm-6 col-12">
@@ -53,7 +54,7 @@
                                     Nama Instansi<p class="d-inline text-danger"> *</p>
                                 </label>
                                 <select class="form-control" name="instansi_id">
-                                    <option selected value="">{{ $data->instansi_id }}</option>
+                                    <option selected value="{{ $data->instansi_id }}">{{ $data->instansi_id }}</option>
                                     <option value="1">Laki - Laki</option>
                                     <option value="2">Perempuan</option>
                                 </select>
@@ -84,7 +85,12 @@
                         <div class="col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Permohonan Email Dinas <p class="d-inline text-danger">*</p></label>
-                                <input type="file" class="form-control" name="per_email" accept=".pdf, .jpg, .jpeg">
+                                <input type="file" class="form-control" name="per_email" accept=".pdf, .jpg, .jpeg"
+                                    value="{{ $data->per_email }}">
+                                {{-- @if(isset($data->per_email))
+                                <!-- Pastikan variabel $oldFileName sudah di-set di controller -->
+                                <p>File Lama: {{ ($data->per_email)}}</p>
+                                @endif --}}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     *) jenis file yang diupload : jpg, jpeg. ukuran maks 2 Mb
                                 </small>
@@ -96,8 +102,12 @@
                         <div class="col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Permohonan Penerbitan Sertifikat<p class="d-inline text-danger">*</p></label>
-                                <input type="file" class="form-control" name="per_sertifikat"
-                                    accept=".pdf, .jpg, .jpeg">
+                                <input type="file" class="form-control" name="per_sertifikat" accept=".pdf, .jpg, .jpeg"
+                                    value="{{ $data->per_sertfikat }}">
+                                {{-- @if(isset($data->per_sertifikat))
+                                <!-- Pastikan variabel $oldFileName sudah di-set di controller -->
+                                <p>File Lama: {{ ($data->per_sertifikat)}}</p>
+                                @endif --}}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     *) jenis file yang diupload : jpg, jpeg. ukuran maks 2 Mb
                                 </small>
@@ -109,7 +119,12 @@
                         <div class="col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Rekomendasi<p class="d-inline text-danger">*</p></label>
-                                <input type="file" class="form-control" name="rekomendasi" accept=".pdf, .jpg, .jpeg">
+                                <input type="file" class="form-control" name="rekomendasi" accept=".pdf, .jpg, .jpeg"
+                                    value="{{ $data->rekomendasi }}">
+                                {{-- @if(isset($data->rekomendasi))
+                                <!-- Pastikan variabel $oldFileName sudah di-set di controller -->
+                                <p>File Lama: {{ ($data->rekomendasi)}}</p>
+                                @endif --}}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     *) jenis file yang diupload : jpg, jpeg. ukuran maks 2 Mb
                                 </small>
@@ -121,7 +136,12 @@
                         <div class="col-sm-6 col-12">
                             <div class="form-group">
                                 <label>SK Jabatan / Pengangkatan<p class="d-inline text-danger">*</p></label>
-                                <input type="file" class="form-control" name="sk" accept=".pdf, .jpg, .jpeg">
+                                <input type="file" class="form-control" name="sk" accept=".pdf, .jpg, .jpeg"
+                                    value="{{ $data->sk }}">
+                                {{-- @if(isset($data->sk))
+                                <!-- Pastikan variabel $oldFileName sudah di-set di controller -->
+                                <p>File Lama: {{ ($data->sk)}}</p>
+                                @endif --}}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     *) jenis file yang diupload : jpg, jpeg. ukuran maks 2 Mb
                                 </small>
