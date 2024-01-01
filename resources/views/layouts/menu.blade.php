@@ -20,7 +20,7 @@
                         <a href="{{ route('list_daftar') }}">List Pendaftar</a>
                     </li>
                     <li>
-                        <a href="#">Berkas TTE</a>
+                        <a href="{{ route('sh_berkas') }}">Berkas TTE</a>
                     </li>
 
                 </ul>

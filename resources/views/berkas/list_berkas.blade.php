@@ -1,0 +1,172 @@
+@extends('layouts.main')
+
+@section('content')
+<!-- Row start -->
+<div class="row gutters">
+    <div class="col-12">
+
+        <div class="table-container">
+            <div class="t-header" style="font-size: 1.5em; background-color: #cbe6f4; border-radius: 10px"> Berkas
+                Persyaratan
+                <a href="#" class="btn btn-primary btn-rounded float-end" data-bs-toggle="modal"
+                    data-bs-target="#AddModal"><i class="icon-plus"></i> Tambah
+                    Berkas</a>
+            </div>
+            <!-- Modal edit_kategori-->
+            @foreach ($berkas as $data )
+            <div class="modal fade" id="customModalEdit{{ $data->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="customModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="customModalLabel">Edit Berkas Persyaratan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('update_berkas', $data) }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('patch')
+                                <div class="row gutters">
+                                    <div class="col-sm-12 col-12">
+                                        <div class="form-group">
+                                            <label>Nama Berkas <p class="d-inline text-danger">*</p></label>
+                                            <input type="text" class="form-control" name="nama_berkas"
+                                                value="{{ $data->nama_berkas }}">
+                                            @error('nama_berkas')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-12">
+                                        <div class="form-group">
+                                            <label>File Upload <p class="d-inline text-danger">*</p></label>
+                                            <input type="file" class="form-control" name="file_berkas"
+                                                value="{{ $data->file_berkas }}">
+                                            @error('file_berkas')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer custom">
+
+                            <div class="left-side">
+                                <button type="button" class="btn btn-link danger" data-bs-dismiss="modal">Batal</button>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="right-side">
+
+                                <button type="submit" class="btn btn-link success">Update</button>
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+            <!-- Akhir Modal edit_kategori-->
+            <div class=" table-responsive">
+                <table id="basicExample" class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama Berkas Persyaratan</th>
+                            <th>Nama File Berkas</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($berkas as $data )
+                        <tr>
+                            <td>{{ $data->nomor }}</td>
+                            <td>{{ $data->nama_berkas }}</td>
+                            <td>{{ $data->file_berkas }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                        data-display="static" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-list2"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-lg-right">
+                                        <a href="" type="submit" class="dropdown-item" data-bs-toggle="modal"
+                                            data-bs-target="#customModalEdit{{ $data->id }}"><i class="icon-pencil"></i>
+                                            Edit</a>
+
+                                        <form id="hapusForm" action="{{ route('delete_berkas', $data) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="button" onclick="konfirmasiHapus()" class="dropdown-item"><i
+                                                    class="icon-trash"></i>
+                                                Hapus</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
+
+<!-- Modal Add_kategori-->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customModalLabel">Tambah Berkas Persyaratan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('save_berkas') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row gutters">
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label>Nama Berkas <p class="d-inline text-danger">*</p></label>
+                                <input type="text" class="form-control" placeholder="masukan nama berkas"
+                                    name="nama_berkas">
+                                @error('nama_berkas')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12">
+                            <div class="form-group">
+                                <label>File Upload <p class="d-inline text-danger">*</p></label>
+                                <input type="file" class="form-control" name="file_berkas">
+                                @error('file_berkas')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer custom">
+
+                <div class="left-side">
+                    <button type="button" class="btn btn-link danger" data-bs-dismiss="modal">Batal</button>
+                </div>
+                <div class="divider"></div>
+                <div class="right-side">
+
+                    <button type="submit" class="btn btn-link success">Simpan</button>
+
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Akhir Modal Add_kategori-->
+
+
+
+@endsection
