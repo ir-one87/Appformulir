@@ -27,6 +27,8 @@ Route::get('/form/edit/{id}', [FormulirController::class, 'edit_form'])->name('e
 Route::post('/formulir/save', [FormulirController::class, 'save_form'])->name('save_form');
 Route::patch('/form/update/{formulir}', [FormulirController::class, 'update_form'])->name('update_form');
 Route::delete('/form/delete/{formulir}', [FormulirController::class, 'delete_form'])->name('delete_form');
+Route::get('/view-pdf/{encodedFileName}', [FormulirController::class, 'viewPdf'])->name('viewPdf');
+Route::get('/show/{formulir}', [FormulirController::class, 'show_pdf'])->name('show_pdf');
 
 
 Route::get('/berkas', [BerkasController::class, 'sh_berkas'])->name('sh_berkas');
