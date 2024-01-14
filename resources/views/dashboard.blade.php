@@ -72,7 +72,52 @@
     </div>
 </div>
 <!-- Row end -->
+<!-- Row start -->
+<div class="row gutters">
+    <div class="col-12">
+        <div class="table-container">
+            <div class="t-header">List Permohonan Pendaftaran SE</div>
+            <div class="table-responsive">
+                <table id="copy-print-csv" class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Lengkap</th>
+                            <th>Jabatan</th>
+                            <th>Nama Instansi</th>
+                            <th>Unit Kerja</th>
+                            <th>Tanggal Upload</th>
+                            <th>Aksi</th>
 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $form )
+                        <tr>
+                            <td>{{ $form->line_number }}</td>
+                            <td>{{ $form->nama_lengkap }}</td>
+                            <td>{{ $form->jabatan }}</td>
+                            <td>{{ $form->Organisasi->nama_opd}}</td>
+                            <td>{{ $form->unit_kerja }}</td>
+                            <td>
+                                {{ carbon\carbon::parse($form->created_at)->format('l, d-M-Y') }}
+                            </td>
+                            <td>
+                                <div>
+                                    <a href="{{ route('show_pdf', $form) }}" type="button" class="btn btn-info"><i
+                                            class="icon-eye1"></i> show detail</a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row end -->
+{{--
 <!-- Row start -->
 <div class="row gutters">
     <div class="col-12">
@@ -86,8 +131,9 @@
         </div>
     </div>
 </div>
-<!-- Row end -->
+<!-- Row end --> --}}
 
+{{--
 <!-- Row start -->
 <div class="row gutters">
     <div class="col-xl-4 col-md-6 col-sm-12 col-12">
@@ -202,6 +248,6 @@
         </div>
     </div>
 </div>
-<!-- Row end -->
+<!-- Row end --> --}}
 
 @endsection

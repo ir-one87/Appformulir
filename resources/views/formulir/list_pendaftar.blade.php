@@ -16,7 +16,7 @@
                             <th>Nama Instansi</th>
                             <th>Unit Kerja</th>
                             <th>Status Pendaftaran</th>
-                            <th>Status TTe</th>
+                            <th>Status Berkas</th>
                             <th>Tanggal Upload</th>
                             <th>Aksi</th>
 
@@ -32,21 +32,26 @@
                             <td>{{ $form->unit_kerja }}</td>
                             <td>
                                 @if ($form->status==1)
-                                <a href="#" type="button" class="btn btn-secondary btn-sm"><i
-                                        class="fas fa-check"></i>Aktivasi Akun</a>
+                                <a href="{{ route('update_status', $form) }}" type="button"
+                                    class="btn btn-success btn-sm"><i class="icon-check"></i>Selesai</a>
                                 @else
-                                <a href="#" type="button" class="btn btn-danger btn-sm"><i
-                                        class="fas fa-check"></i>Konfirmasi</a>
+                                <a href="{{ route('update_status', $form) }}" type="button"
+                                    class="btn btn-danger btn-sm"><i class="icon-check"></i>Konfirmasi</a>
                                 @endif
                             </td>
                             <td>
-                                @if ($form->status_tte==1)
-                                <a href="#" type="button" class="btn btn-warning btn-sm"><i
-                                        class="fas fa-check"></i>Terbit</a>
-                                @else
-                                <a href="#" type="button" class="btn btn-info btn-sm"><i class="fas fa-check"></i>Belum
-                                    Terbit</a>
-                                @endif
+                                <label>
+                                    @if($form->status_berkas == 0)
+                                    <strong>Berkas Lengkap</strong>
+                                    @endif
+                                    @if($form->status_berkas == 1)
+                                    <a href="{{ route('edit_form', $form->id) }}"
+                                        class="btn btn-danger btn-sm w-100 text-center text-white" target="_blank">
+                                        Upload Kembali
+                                    </a>
+                                    @endif
+                                </label>
+                                <p>{{ $form->pesan }}</p>
                             </td>
                             <td>
                                 {{ carbon\carbon::parse($form->created_at)->format('l, d-M-Y') }}
@@ -84,7 +89,6 @@
         </div>
     </div>
 </div>
-
 <!-- Row end -->
 
 <script>

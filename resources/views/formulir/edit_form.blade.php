@@ -162,7 +162,8 @@
                         <div>
                             <div class="col-sm-2">
                                 <label>
-                                    <input type="hidden" name="status_berkas" value="0" />
+                                    <input type="hidden" name="status_berkas"
+                                        value="{{ $form->status_berkas ?? 0  }}" />
                                 </label>
                             </div>
                         </div>

@@ -30,6 +30,10 @@ Route::patch('/form/update/{formulir}', [FormulirController::class, 'update_form
 Route::delete('/form/delete/{formulir}', [FormulirController::class, 'delete_form'])->name('delete_form');
 Route::get('/view-pdf/{encodedFileName}', [FormulirController::class, 'viewPdf'])->name('viewPdf');
 Route::get('/show/{formulir}', [FormulirController::class, 'show_pdf'])->name('show_pdf');
+Route::get('/update/status/{id}', [FormulirController::class, 'update_status'])->name('update_status');
+Route::get('/update/statusTte/{id}', [FormulirController::class, 'status_tte'])->name('status_tte');
+Route::patch('/update/statusberkas/{id}', [FormulirController::class, 'status_tolak'])->name('status_tolak');
+Route::patch('/update/statusverifikasi/{id}', [FormulirController::class, 'status_verifikasi'])->name('status_verifikasi');
 
 
 Route::get('/berkas', [BerkasController::class, 'sh_berkas'])->name('sh_berkas');

@@ -67,10 +67,11 @@
                             <td>{{ $pendaftar->unit_kerja }}</td>
                             <td>
                                 @if ($pendaftar->status_tte==1)
-                                <a href="#" type="button" class="btn btn-warning btn-sm"><i
-                                        class="fas fa-check"></i>Terbit</a>
+                                <a href="{{ route('status_tte', $pendaftar) }}" type="button"
+                                    class="btn btn-success btn-sm"><i class="icon-check"></i> Terbit</a>
                                 @else
-                                <a href="#" type="button" class="btn btn-info btn-sm"><i class="fas fa-check"></i>Belum
+                                <a href="{{ route('status_tte', $pendaftar) }}" type="button"
+                                    class="btn btn-info btn-sm"><i class="icon-check"></i> Belum
                                     Terbit</a>
                                 @endif
                             </td>

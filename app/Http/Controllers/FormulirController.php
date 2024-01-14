@@ -196,6 +196,8 @@ class FormulirController extends Controller
             'per_sertifikat' => $name_file1,
             'rekomendasi' => $name_file2,
             'sk' => $name_file3,
+            'status_berkas' => $request->status_berkas == 'on' ? 1 : 0,
+            'pesan' => $request->pesan
         ]);
 
         notify()->success('Berhasil diupdate!');
@@ -249,5 +251,67 @@ class FormulirController extends Controller
     {
         $dataForm = Formulir::findOrFail($id);
         return view('formulir.showpdf', compact('dataForm'));
+    }
+
+
+    public function update_status($id)
+    {
+        $data = Formulir::find($id);
+
+        if ($data->status == 0) {
+            $data->update([
+                'status' => 1
+            ]);
+        } else {
+            $data->update([
+                'status' => 0
+            ]);
+        }
+
+        return Redirect::back();
+    }
+
+    public function status_tte($id)
+    {
+        $data = Formulir::find($id);
+
+        if ($data->status_tte == 0) {
+            $data->update([
+                'status_tte' => 1
+            ]);
+        } else {
+            $data->update([
+                'status_tte' => 0
+            ]);
+        }
+
+        return Redirect::back();
+    }
+
+    public function status_tolak(Request $request, $id)
+    {
+        $data = Formulir::find($id);
+        if ($data->status_berkas == 0) {
+            $data->update([
+                'status_berkas' => 1,
+                'pesan' => $request->pesan
+
+            ]);
+        }
+        notify()->warning('berkas telah di verfikasi');
+        return Redirect::route('list_daftar');
+    }
+    public function status_verifikasi(Request $request, $id)
+    {
+        $data = Formulir::find($id);
+        if ($data->status_berkas == 1) {
+            $data->update([
+                'status_berkas' => 0,
+                'pesan' => $request->pesan
+
+            ]);
+        }
+
+        return Redirect::back();
     }
 }
