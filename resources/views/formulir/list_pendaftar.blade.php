@@ -5,7 +5,7 @@
 <div class="row gutters">
     <div class="col-12">
         <div class="table-container">
-            <div class="t-header">List Pendaftaran SE Per OPD</div>
+            <div class="t-header">List Permohonan Pendaftaran SE</div>
             <div class="table-responsive">
                 <table id="copy-print-csv" class="table custom-table">
                     <thead>
@@ -23,12 +23,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($formulirs as $form )
+                        @foreach ($data as $form )
                         <tr>
-                            <td>{{ $form->line_number }}</td>
+                            <td>{{ $form->nomor_baris }}</td>
                             <td>{{ $form->nama_lengkap }}</td>
                             <td>{{ $form->jabatan }}</td>
-                            <td>{{ $form->instansi_id }}</td>
+                            <td>{{ $form->Organisasi->nama_opd}}</td>
                             <td>{{ $form->unit_kerja }}</td>
                             <td>
                                 @if ($form->status==1)

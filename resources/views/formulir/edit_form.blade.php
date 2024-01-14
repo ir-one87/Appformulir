@@ -54,9 +54,11 @@
                                     Nama Instansi<p class="d-inline text-danger"> *</p>
                                 </label>
                                 <select class="form-control" name="instansi_id">
-                                    <option selected value="{{ $data->instansi_id }}">{{ $data->instansi_id }}</option>
-                                    <option value="1">Laki - Laki</option>
-                                    <option value="2">Perempuan</option>
+                                    <option selected value="{{ $data->instansi_id }}">{{ $data->organisasi->nama_opd }}
+                                    </option>
+                                    @foreach($organisasi as $item)
+                                    <option value="{{ $data->instansi_id }}">{{ $item->nama_opd}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

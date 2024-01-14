@@ -4,6 +4,7 @@ use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\RekapController;
 use App\Models\Berkas;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,7 @@ Route::get('/listopd', [OrganisasiController::class, 'sh_organisasi'])->name('sh
 Route::post('/listopd/save', [OrganisasiController::class, 'save_opd'])->name('save_opd');
 Route::patch('/listopd/update/{organisasi}', [OrganisasiController::class, 'update_opd'])->name('update_opd');
 Route::delete('/listopd/delete/{organisasi}', [OrganisasiController::class, 'delete_opd'])->name('delete_opd');
+
+
+Route::get('/listdaftar', [RekapController::class, 'Show_List'])->name('ShowList');
+Route::get('/rekapOPD', [RekapController::class, 'rekap_opd'])->name('rekap.opd');

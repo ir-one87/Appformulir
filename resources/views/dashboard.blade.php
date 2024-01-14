@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-@include('layouts.loading')
+{{-- @include('layouts.loading') --}}
 <!-- Row start -->
 <div class="row gutters">
     <div class="col-lg-3 col-sm-6 col-12">

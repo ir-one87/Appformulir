@@ -54,8 +54,9 @@
                                 </label>
                                 <select class="form-control" name="instansi_id">
                                     <option selected value="">-- pilih OPD --</option>
-                                    <option value="1">Laki - Laki</option>
-                                    <option value="2">Perempuan</option>
+                                    @foreach ($organisasi as $opd)
+                                    <option value="{{ $opd->id }}">{{ $opd->nama_opd }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -175,6 +176,7 @@
                             <th>Nama Lengkap</th>
                             <th>Jabatan</th>
                             <th>Unit Kerja</th>
+                            <th>Instansi</th>
                             <th>Status Pendaftaran</th>
                             <th>Status TTe</th>
                             <th>Status Berkas</th>
@@ -188,6 +190,7 @@
                             <td>{{ $form->nama_lengkap }}</td>
                             <td>{{ $form->jabatan }}</td>
                             <td>{{ $form->unit_kerja }}</td>
+                            <td>{{ $form->Organisasi->nama_opd }}</td>
                             <td>
                                 <label>
                                     @if($form->status == 1)

@@ -57,22 +57,29 @@
                                 <tr>
                                     <th scope="row">Permohoanan Email Dinas</th>
                                     <th scope="row">:</th>
-                                    <td><a href="#" target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
+                                    <td><a href="{{ asset('file_upload/permohonanEmail/' . $dataForm->per_email) }}"
+                                            target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Permohoanan Penerbitan Sertifikat</th>
                                     <th scope="row">:</th>
-                                    <td><a href="#" target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
+                                    <td><a href="{{ asset('file_upload/permohonanSE/' . $dataForm->per_sertifikat) }}"
+                                            target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Form Rekomendasi</th>
                                     <th scope="row">:</th>
-                                    <td><a href="#" target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
+                                    <td><a href="{{ asset('file_upload/rekomendasi/' . $dataForm->rekomendasi) }}"
+                                            target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a>
+
+                                    </td>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">SK Jabatan / Pengangkatan</th>
                                     <th scope="row">:</th>
-                                    <td><a href="#" target="_blank" class="btn btn-primary btn-sm">Lihat Berkas</a></td>
+                                    <td><a href="{{ asset('file_upload/sk/' . $dataForm->sk) }}" target="_blank"
+                                            class="btn btn-primary btn-sm">Lihat Berkas</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Verifikasi Berkas</th>

@@ -67,10 +67,10 @@
             <div class="sidebar-submenu">
                 <ul>
                     <li>
-                        <a href="#">List Pendaftaran Per OPD</a>
+                        <a href="{{ route('ShowList') }}">List Pendaftaran Per OPD</a>
                     </li>
                     <li>
-                        <a href="#">Rekap Per OPD</a>
+                        <a href="{{ route('rekap.opd') }}">Rekap Per OPD</a>
                     </li>
                     <li>
                         <a href="#">Rekap Status Pendaftaran</a>
