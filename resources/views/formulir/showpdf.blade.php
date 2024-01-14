@@ -34,7 +34,7 @@
                                 <tr>
                                     <th scope="row">Instansi</th>
                                     <th scope="row">:</th>
-                                    <td>{{ $dataForm->instansi_id }}</td>
+                                    <td>{{ $dataForm->organisasi->nama_opd }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Unit Kerja</th>

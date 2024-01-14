@@ -2,7 +2,7 @@
 <div class="page-header">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item active"> List Pendaftaran</li>
+        <li class="breadcrumb-item active"> App Formulir | Provisi Sulawesi Barat</li>
     </ol>
 
     <ul class="app-actions">

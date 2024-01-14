@@ -13,7 +13,6 @@
                             <th>No</th>
                             <th>Nama Organisasi Perangkat Daerah</th>
                             <th>Rekap</th>
-
                         </tr>
                     </thead>
                     <tbody>

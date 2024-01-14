@@ -7,44 +7,33 @@
     <div class="col-lg-3 col-sm-6 col-12">
         <div class="info-stats4">
             <div class="info-icon">
-                <i class="icon-eye1"></i>
+                <i class="icon-user"></i>
             </div>
             <div class="sale-num">
-                <h3>9500</h3>
-                <p>Rekap Pendaftaran SE</p>
+                <h3>{{ $count1 }}</h3>
+                <p class="text-primary">Rekap Pendaftaran SE</p>
             </div>
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
         <div class="info-stats4">
             <div class="info-icon">
-                <i class="icon-shopping-cart1"></i>
+                <i class="icon-home"></i>
             </div>
             <div class="sale-num">
-                <h3>2500</h3>
-                <p>Rekap OPD yang Mendaftar</p>
+                <h3>{{ $count2 }}</h3>
+                <p class="text-primary">Rekap OPD yang Mendaftar</p>
             </div>
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
         <div class="info-stats4">
             <div class="info-icon">
-                <i class="icon-shopping-bag1"></i>
+                <i class="icon-beenhere"></i>
             </div>
             <div class="sale-num">
-                <h3>7500</h3>
-                <p>Status Pendaftaran (Selesai)</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
-            <div class="info-icon">
-                <i class="icon-activity"></i>
-            </div>
-            <div class="sale-num">
-                <h3>3500</h3>
-                <p>Status Pendaftaran (Belum Selesai)</p>
+                <h3>{{ $countselesai }}</h3>
+                <p class="text-primary">Status Pendaftaran (Selesai)</p>
             </div>
         </div>
     </div>
@@ -54,8 +43,19 @@
                 <i class="icon-activity"></i>
             </div>
             <div class="sale-num">
-                <h3>3500</h3>
-                <p>Status TTe (Sudah Terbit)</p>
+                <h3>{{ $countbelumselesai }}</h3>
+                <p class="text-primary">Status Pendaftaran (Belum Selesai)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="info-stats4">
+            <div class="info-icon">
+                <i class="icon-style"></i>
+            </div>
+            <div class="sale-num">
+                <h3>{{ $counttteterbit }}</h3>
+                <p class="text-primary">Status TTe (Sudah Terbit)</p>
             </div>
         </div>
     </div>
@@ -65,8 +65,8 @@
                 <i class="icon-activity"></i>
             </div>
             <div class="sale-num">
-                <h3>3500</h3>
-                <p>Status TTe (Belum Terbit)</p>
+                <h3>{{ $countbelumterbit }}</h3>
+                <p class="text-primary">Status TTe (Belum Terbit)</p>
             </div>
         </div>
     </div>
