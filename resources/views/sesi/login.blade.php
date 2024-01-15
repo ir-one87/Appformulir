@@ -23,6 +23,9 @@
     <!-- *************
 			************ Common Css Files *************
 		************ -->
+    <!-- Font for coming soon page -->
+    <link href="https://fonts.googleapis.com/css?family=Erica+One&display=swap" rel="stylesheet">
+
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- Icomoon Font Icons css -->
@@ -30,10 +33,14 @@
 
     <!-- Master CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+    <!-- Particles CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/particles/particles.css')}}">
 
 </head>
 
 <body class="authentication" style="background-image: url('{{ asset('assets/img/bg.jpg') }}'); background-size: cover;">
+    <div id="particles-js"></div>
+    <div class="countdown-bg"></div>
 
     <!-- Container start -->
     <div class="container">
@@ -108,6 +115,11 @@
 
     </div>
     <!-- Container end -->
+    <!-- Particles JS -->
+    <script src="{{ asset('assets/vendor/particles/particles.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/particles/particles-custom-error.js') }}"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $('#reload').click(function () {
