@@ -12,8 +12,18 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Organisasi Perangkat Daerah</th>
-                            <th>Rekap</th>
+                            <th>Rekap Pendaftar</th>
+                            {{-- <th colspan="3" class="text-center">Rekap</th> --}}
                         </tr>
+                        {{-- <tr>
+                            <th></th>
+                            <th></th>
+                            <th>Total Pendaftar</th>
+                            <th>Status Pendaftaran (selesai)</th>
+                            <th>Status Pendaftaran (belum selesai)</th>
+                            <th>Status TTe (Terbit)</th>
+                            <th>Status TTe (Belum Terbit)</th>
+                        </tr> --}}
                     </thead>
                     <tbody>
                         @foreach ($forms as $opd )
@@ -21,6 +31,10 @@
                             <td>{{ $opd->row_number }}</td>
                             <td>{{ $opd->nama_opd }}</td>
                             <td>{{ $opd->formulir_count }}</td>
+                            {{-- <td>{{ $countselesai }}</td>
+                            <td>{{ $countbelum }}</td>
+                            <td>{{$counttteterbit }}</td>
+                            <td>{{ $countbelumterbit }}</td> --}}
                         </tr>
                         @endforeach
                     </tbody>

@@ -33,10 +33,15 @@ class RekapController extends Controller
 
     public function rekap_opd()
     {
+
+        $countselesai = Formulir::where('status', 1)->count();
+        $countbelum = Formulir::where('status', 0)->count();
+        $counttteterbit = Formulir::where('status_tte', 1)->count();
+        $countbelumterbit = Formulir::where('status_tte', 0)->count();
         $forms = Organisasi::withCount(['formulir'])->get();
         $forms->each(function ($form, $index) {
             $form->row_number = $index + 1;
         });
-        return view('rekap.rekap_perOPD', compact('forms'));
+        return view('rekap.rekap_perOPD', compact('forms', 'countselesai', 'countbelum', 'counttteterbit', 'countbelumterbit'));
     }
 }
