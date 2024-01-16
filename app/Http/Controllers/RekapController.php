@@ -44,4 +44,10 @@ class RekapController extends Controller
         });
         return view('rekap.rekap_perOPD', compact('forms', 'countselesai', 'countbelum', 'counttteterbit', 'countbelumterbit'));
     }
+
+    public function detail($id)
+    {
+        $datadetail = Formulir::findOrFail($id);
+        return view('rekap.detail', compact('datadetail'));
+    }
 }

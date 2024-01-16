@@ -126,6 +126,14 @@
                         formaction="{{ route('status_verifikasi', $dataForm) }}" formmethod="POST" @csrf
                         @method('patch') Verifikasi</button>
                 </div>
+                <div class="modal-footer text-right">
+                    <div class="row">
+                        <strong class="text-right">Keterangan : <p class="text-danger">Tolak : Jika Terdapat Kesalahan
+                                Pada Berkas </p>
+                            <p class="text-primary">Verifikasi : Setelah Berkas selesai diperbaiki </p>
+                        </strong>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

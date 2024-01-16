@@ -57,3 +57,4 @@ Route::delete('/listopd/delete/{organisasi}', [OrganisasiController::class, 'del
 
 Route::get('/listdaftar', [RekapController::class, 'Show_List'])->name('ShowList');
 Route::get('/rekapOPD', [RekapController::class, 'rekap_opd'])->name('rekap.opd');
+Route::get('/detail/{formulir}', [RekapController::class, 'detail'])->name('detailberkas');

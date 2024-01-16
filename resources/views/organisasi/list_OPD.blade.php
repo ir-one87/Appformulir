@@ -119,10 +119,8 @@
                         <div class="col-sm-12 col-12">
                             <div class="form-group">
                                 <label>Nama Organisasi Perangkat Daerah<p class="d-inline text-danger">*</p></label>
-                                <input type="text" class="form-control" placeholder="masukan nama OPD" name="nama_opd">
-                                @error('nama_opd')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                <input type="text" class="form-control" placeholder="masukan nama OPD" name="nama_opd"
+                                    id="namaOPD">
                             </div>
                         </div>
                     </div>
@@ -145,6 +143,22 @@
 </div>
 <!-- Akhir Modal Add_kategori-->
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var previousValue = '';
 
+        function checkDuplicate() {
+            var currentValue = document.getElementById('namaOPD').value;
+
+            if (currentValue === previousValue) {
+                alert('Inputan ganda terdeteksi!');
+            }
+
+            previousValue = currentValue;
+        }
+
+        document.getElementById('namaOPD').addEventListener('input', checkDuplicate);
+    });
+</script>
 
 @endsection

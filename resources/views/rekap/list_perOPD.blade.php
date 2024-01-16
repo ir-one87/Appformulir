@@ -55,6 +55,7 @@
                             <th>Unit Kerja</th>
                             <th>Status TTe</th>
                             <th>Tanggal Upload</th>
+                            <th>Berkas Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,6 +79,8 @@
                             <td>
                                 {{ carbon\carbon::parse($pendaftar->created_at)->format('l, d-M-Y') }}
                             </td>
+                            <td><a href="{{ route('detailberkas', $pendaftar) }}" type="button" class="btn btn-info"><i
+                                        class="icon-eye1"></i> show detail</a></td>
                         </tr>
                         @endforeach
                     </tbody>
