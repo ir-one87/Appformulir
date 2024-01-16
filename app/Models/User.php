@@ -25,6 +25,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function organisasi()
+    {
+        return $this->belongsTo(Organisasi::class, 'opd_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

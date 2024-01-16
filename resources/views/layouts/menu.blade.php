@@ -37,10 +37,10 @@
                         <a href="{{ route('sh_organisasi') }}">Data OPD</a>
                     </li>
                     <li>
-                        <a href="#">List Akun OPD</a>
+                        <a href="{{ route('pengguna') }}">List Akun OPD</a>
                     </li>
                     <li>
-                        <a href="#">Register Akun OPD</a>
+                        <a href="{{ route('formRegis') }}">Register Akun OPD</a>
                     </li>
                 </ul>
             </div>

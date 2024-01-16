@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use GrahamCampbell\ResultType\Success;
+use App\Models\User;
+use App\Models\Organisasi;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class SesiController extends Controller
 {
@@ -63,5 +66,44 @@ class SesiController extends Controller
     public function reloadCaptcha()
     {
         return response()->json(['captcha' => captcha_img('math')]);
+    }
+
+    public function formRegis()
+    {
+        $opd = Organisasi::all();
+        return view('sesi.formregis', compact('opd'));
+    }
+
+    public function RegisAkun(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required',
+            'role' => 'required',
+            'opd_id' => 'required'
+        ], [
+            'name.required' => 'Nama User wajid di isi',
+            'email.required' => 'masukan email yang valid',
+            'password' => 'Password wajib di isi',
+            'role' => 'Wajib dipilih',
+            'opd_id' => 'pilih OPD'
+        ]);
+
+        $infoakun = [
+            'name' => $request->name,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+            'email' => $request->email,
+            'opd_id' => $request->opd_id
+        ];
+
+        User::create($infoakun);
+        notify()->success('Berhasil Dibuat');
+        return redirect('/pengguna');
+    }
+
+    public function ListAkun()
+    {
+        return view('sesi.list_akun');
     }
 }

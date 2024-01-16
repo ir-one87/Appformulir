@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\BerkasController;
-use App\Http\Controllers\FormulirController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\OrganisasiController;
-use App\Http\Controllers\RekapController;
-use App\Http\Controllers\SesiController;
 use App\Models\Berkas;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SesiController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RekapController;
+use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\OrganisasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::get('/sesi', [SesiController::class, 'sesi_index'])->name('formlogin');
 Route::post('/login', [SesiController::class, 'login'])->name('login');
 Route::get('/logout', [SesiController::class, 'logout'])->name('logout');
 Route::get('/reload-captcha', [SesiController::class, 'reloadCaptcha'])->name('reloadCaptcha');
+Route::get('/akun', [SesiController::class, 'formRegis'])->name('formRegis');
+
+Route::post('/register', [SesiController::class, 'RegisAkun'])->name('register');
+
+Route::get('/pengguna', [UserController::class, 'user_opd'])->name('pengguna');
 
 
 Route::get('/formulir', [FormulirController::class, 'sh_form'])->name('sh_form');
