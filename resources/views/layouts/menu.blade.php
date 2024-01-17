@@ -1,6 +1,8 @@
 <!-- sidebar menu start -->
 <div class="sidebar-menu">
+
     <ul>
+        @if (Auth::user()->role == 'admin')
         <li class="header-menu">General</li>
         <li>
             <a href="{{ route('home') }}" class="current-page">
@@ -45,6 +47,8 @@
                 </ul>
             </div>
         </li>
+        @endif
+
         <li class="header-menu">Formulir</li>
         <li>
             <a href="{{ route('sh_form') }}">
@@ -58,6 +62,7 @@
                 <span class="menu-text">Berkas Persyaratan</span>
             </a>
         </li>
+        @if (Auth::user()->role == 'admin')
         <li class="header-menu">Rekap</li>
         <li class="sidebar-dropdown">
             <a href="#">
@@ -81,6 +86,7 @@
                 </ul>
             </div>
         </li>
+        @endif
     </ul>
 </div>
 <!-- sidebar menu end -->

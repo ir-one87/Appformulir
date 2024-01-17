@@ -184,9 +184,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($formulirs as $form )
+                        @foreach ($data as $index => $form )
                         <tr>
-                            <td>{{ $form->line_number }}</td>
+                            <td>{{ $index + 1 }}</td>
                             <td>{{ $form->nama_lengkap }}</td>
                             <td>{{ $form->jabatan }}</td>
                             <td>{{ $form->unit_kerja }}</td>

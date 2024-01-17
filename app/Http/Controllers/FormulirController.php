@@ -15,13 +15,34 @@ class FormulirController extends Controller
 {
     public function sh_form()
     {
+
+        $opdId = session('opd_yg_sdg_login');
+
+        if (session('tipe') == 'admin') {
+            // Query without filtering by instansi_id for admin
+            $data = Formulir::with(['organisasi' => function ($query) {
+                $query->withCount('formulir');
+            }])
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        } else {
+            // Query with filtering by instansi_id for operators
+            $data = Formulir::with(['organisasi' => function ($query) {
+                $query->withCount('formulir');
+            }])
+                ->where('instansi_id', $opdId)
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        }
+
+
         $organisasi = Organisasi::all();
-        $formulirs = Formulir::all();
-        // Menambahkan nomor baris pada setiap elemen formulir
-        foreach ($formulirs as $key => $formulir) {
+
+        // // Menambahkan nomor baris pada setiap elemen formulir
+        foreach ($data as $key => $formulir) {
             $formulir->line_number = $key + 1;
         }
-        return view('formulir.form', compact('formulirs', 'organisasi'));
+        return view('formulir.form', compact('data', 'organisasi'));
     }
 
 

@@ -15,7 +15,7 @@
     <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
     <meta property="og:type" content="Website">
     <meta property="og:site_name" content="Bootstrap Gallery">
-    <link rel="shortcut icon" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo_sulbar.png') }}" />
 
     <!-- Title -->
     <title>App | Formulir Permohonan Penerbitan SE</title>

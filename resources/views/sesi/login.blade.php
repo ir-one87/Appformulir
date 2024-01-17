@@ -65,7 +65,8 @@
                             @endif
                             <div class="form-group">
                                 <label for="">Nama Pengguna</label>
-                                <input type="text" class="form-control" placeholder="Username" name="name" />
+                                <input type="text" class="form-control" placeholder="Username" name="name"
+                                    value="{{ old('name') }}" />
                                 @error('name')
                                 <div class="alert alert-warning text-center">
                                     {{ $message }}

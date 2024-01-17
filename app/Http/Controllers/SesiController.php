@@ -51,12 +51,11 @@ class SesiController extends Controller
                 return redirect('/formulir');
             }
         }
-        return redirect('/sesi')->with('error', 'Data yang di masukan tidak valid');
+        return redirect('/')->with('error', 'Data yang di masukan tidak valid');
     }
 
     public function logout(User $user)
     {
-
         Auth::logout();
         session()->flush();
 
