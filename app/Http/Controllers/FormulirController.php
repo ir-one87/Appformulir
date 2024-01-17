@@ -332,7 +332,6 @@ class FormulirController extends Controller
 
             ]);
         }
-
-        return Redirect::back();
+        return Redirect::route('list_daftar');
     }
 }

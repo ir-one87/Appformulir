@@ -52,12 +52,20 @@
                                 <label>
                                     Nama Instansi<p class="d-inline text-danger"> *</p>
                                 </label>
-                                <select class="form-control" name="instansi_id">
+                                @if(session('tipe')=='admin')
+                                <select class="form-control" name="instansi_id" id="instansi">
                                     <option selected value="">-- pilih OPD --</option>
                                     @foreach ($organisasi as $opd)
                                     <option value="{{ $opd->id }}">{{ $opd->nama_opd }}</option>
                                     @endforeach
                                 </select>
+                                @else
+                                <label>
+                                    <input type="hidden" name="instansi_id" value="{{ session('opd_yg_sdg_login') }}" />
+                                </label>
+                                <input type="text" disabled class="form-control" value="{{
+                            app('App\Http\Controllers\GlobalController')->nama_opd(session('opd_yg_sdg_login')) }}">
+                                @endif
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
