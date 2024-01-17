@@ -106,7 +106,7 @@
                             <hr>
                             <div class="actions align-left">
                                 <span class="additional-link">Belum Punya Akun ?</span>
-                                <a href="signup.html" class="btn btn-dark">Register Akun</a>
+                                <a href="signup.html" class="btn btn-dark">Hubungi Admin</a>
                             </div>
                         </div>
                     </div>

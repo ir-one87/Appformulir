@@ -42,19 +42,19 @@ class SesiController extends Controller
                 session(['tipe' => 'admin']);
                 notify()->success('Selamat Datang', Auth::user()->name);
                 return redirect('/dashboard')->with('success', 'Selamat Datang' . " " . Auth::user()->name);
-            }
-            if (Auth::user()->role == 'operator') {
+            } elseif (Auth::user()->role == 'operator') {
                 session(['name' => 'operator' . " " . Auth::user()->name]);
                 session(['tipe' => 'operator']);
                 session(['opd_yg_sdg_login' => Auth::user()->opd_id]);
                 notify()->success('Selamat Datang Operator', Auth::user()->name);
                 return redirect('/formulir');
             }
+        } else {
+            return redirect('/')->with('error', 'Data yang di masukan tidak valid');
         }
-        return redirect('/')->with('error', 'Data yang di masukan tidak valid');
     }
 
-    public function logout(User $user)
+    public function logout()
     {
         Auth::logout();
         session()->flush();
