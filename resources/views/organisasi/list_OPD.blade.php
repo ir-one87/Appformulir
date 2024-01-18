@@ -84,11 +84,12 @@
                                             data-bs-target="#customModalEdit{{ $item->id }}"><i class="icon-pencil"></i>
                                             Edit</a>
 
-                                        <form id="hapusForm" action="{{ route('delete_opd', $item) }}" method="POST">
+                                        <form id="hapusForm_{{ $item->id }}"
+                                            action="{{ route('delete_opd', $item->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="button" onclick="konfirmasiHapus()" class="dropdown-item"><i
-                                                    class="icon-trash"></i>
+                                            <button type="button" onclick="konfirmasiHapus('{{ $item->id }}')"
+                                                class="dropdown-item"><i class="icon-trash"></i>
                                                 Hapus</button>
                                         </form>
                                     </div>

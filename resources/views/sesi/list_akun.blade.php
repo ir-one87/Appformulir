@@ -8,7 +8,12 @@
     <div class="row gutters">
         <div class="col-12 mt-4">
             <div class="table-container">
-                <div class="t-header">Daftar Nama Pengguna OPD</div>
+                <div class="t-header" style="font-size: 1.5em; background-color: #cbe6f4; border-radius: 10px">
+                    List Akun Pengguna OPD
+                    <a href="{{ route('formRegis') }}" class="btn btn-primary btn-rounded float-end"><i
+                            class="icon-plus"></i> Tambah
+                        Akun</a>
+                </div>
                 <div class="table-responsive">
                     <table id="copy-print-csv" class="table custom-table">
                         <thead>
@@ -35,15 +40,17 @@
                                             <i class="icon-list2"></i>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-lg-right">
-                                            <a href="#" type="button" class="dropdown-item"><i class="icon-eye1"></i>
-                                                Show</a>
-                                            <a href="#" type="button" class="dropdown-item"><i class="icon-pencil"></i>
+                                            {{-- <a href="#" type="button" class="dropdown-item"><i
+                                                    class="icon-eye1"></i>
+                                                Show</a> --}}
+                                            <a href="{{ route('editAkun', $item) }}" type="button"
+                                                class="dropdown-item"><i class="icon-pencil"></i>
                                                 Edit</a>
-
-                                            <form id="hapusForm" action="#" method="POST">
+                                            <form id="hapusForm_{{ $item->id }}" action="{{ route('delAkun', $item->id)
+                                                }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" onclick="konfirmasiHapus()"
+                                                <button type="button" onclick="konfirmasiHapus('{{ $item->id }}')"
                                                     class="dropdown-item"><i class="icon-trash"></i>
                                                     Hapus</button>
                                             </form>

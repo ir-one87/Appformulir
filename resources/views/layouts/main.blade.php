@@ -182,7 +182,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function konfirmasiHapus() {
+        function konfirmasiHapus(itemId) {
         Swal.fire({
             title: 'Konfirmasi Hapus',
             text: 'Apakah kamu yakin ingin menghapus?',
@@ -193,7 +193,8 @@
             confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById('hapusForm').submit();
+                var formId = 'hapusForm_' + itemId;
+            document.getElementById(formId).submit();
             }
         });
     }

@@ -23,7 +23,8 @@ class dummyUser extends Seeder
                 'role' => 'admin',
                 'opd_id' => '0',
                 'password' => Hash::make('AdminKominfo@')
-            ]
+            ],
+
         ];
 
         foreach ($userdata as $key => $val) {

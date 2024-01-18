@@ -101,8 +101,35 @@ class SesiController extends Controller
         return redirect('/pengguna');
     }
 
-    public function ListAkun()
+
+    public function delete_akun($id)
     {
-        return view('sesi.list_akun');
+        try {
+            // Temukan pengguna berdasarkan ID
+            $user = User::findOrFail($id);
+
+            // Jika pengguna ditemukan, hapus dan beri pemberitahuan
+            $user->delete();
+            notify()->success('Berhasil dihapus!');
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            // Tangkap pengecualian jika pengguna tidak ditemukan
+            notify()->error('Pengguna tidak ditemukan!');
+        }
+
+        // Kembalikan ke halaman sebelumnya
+        return redirect()->back();
+        // // Temukan pengguna berdasarkan ID
+        // $user = User::findOrFail($id);
+
+        // // Pastikan pengguna ditemukan sebelum dihapus
+        // if ($user) {
+        //     $user->delete();
+        //     notify()->success('Berhasil dihapus!');
+        // } else {
+        //     notify()->error('Pengguna tidak ditemukan!');
+        // }
+
+        // // Kembalikan ke halaman sebelumnya
+        // return redirect()->back();
     }
 }

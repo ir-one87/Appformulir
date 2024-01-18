@@ -41,6 +41,9 @@ Route::middleware(['auth',])->group(function () {
     Route::get('/akun', [SesiController::class, 'formRegis'])->name('formRegis')->middleware('userAkses:admin');
     Route::post('/register', [SesiController::class, 'RegisAkun'])->name('register')->middleware('userAkses:admin');
     Route::get('/pengguna', [UserController::class, 'user_opd'])->name('pengguna')->middleware('userAkses:admin');
+    Route::get('/pengguna/edit/{user}', [UserController::class, 'edit_akun'])->name('editAkun')->middleware('userAkses:admin');
+    Route::patch('/pengguna/update/{user}', [UserController::class, 'update'])->name('update')->middleware('userAkses:admin');
+    Route::delete('/pengguna/delete/{user}', [SesiController::class, 'delete_akun'])->name('delAkun')->middleware('userAkses:admin');
 
 
     Route::get('/formulir', [FormulirController::class, 'sh_form'])->name('sh_form');
