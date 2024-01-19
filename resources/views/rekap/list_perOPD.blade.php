@@ -50,6 +50,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Lengkap</th>
+                            <th>NIK</th>
                             <th>Jabatan</th>
                             <th>Nama Instansi</th>
                             <th>Unit Kerja</th>
@@ -63,6 +64,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $pendaftar->nama_lengkap }}</td>
+                            <td>{{ $pendaftar->nik }}</td>
                             <td>{{ $pendaftar->jabatan }}</td>
                             <td>{{ $pendaftar->Organisasi->nama_opd }}</td>
                             <td>{{ $pendaftar->unit_kerja }}</td>

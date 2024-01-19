@@ -19,8 +19,8 @@ class HomeController extends Controller
         //     ->groupBy('instansi_id')
         //     ->get()->count();
         $count2 = Formulir::select('instansi_id')->groupBy('instansi_id')->get()->count();
-        $page = (20);
-        $data = Formulir::with('Organisasi')->orderBy('created_at', 'desc')->paginate($page);
+        // $page = (7000);
+        $data = Formulir::with('Organisasi')->orderBy('created_at', 'desc')->get();
         foreach ($data as $key => $formulir) {
             $formulir->line_number = $key + 1;
         }

@@ -177,7 +177,7 @@
         <div class="table-container">
             <div class="t-header">List Pendaftaran SE Per OPD</div>
             <div class="table-responsive">
-                <table id="copy-print-csv" class="table custom-table">
+                <table id="basicExample" class="table custom-table">
                     <thead>
                         <tr>
                             <th>No</th>

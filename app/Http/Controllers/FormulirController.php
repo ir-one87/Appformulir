@@ -24,7 +24,7 @@ class FormulirController extends Controller
                 $query->withCount('formulir');
             }])
                 ->orderBy('created_at', 'desc')
-                ->paginate(10);
+                ->get();
         } else {
             // Query with filtering by instansi_id for operators
             $data = Formulir::with(['organisasi' => function ($query) {
@@ -32,7 +32,7 @@ class FormulirController extends Controller
             }])
                 ->where('instansi_id', $opdId)
                 ->orderBy('created_at', 'desc')
-                ->paginate(10);
+                ->get();
         }
 
 
@@ -48,7 +48,7 @@ class FormulirController extends Controller
 
     public function list_daftar()
     {
-        $data = Formulir::orderBy('created_at', 'desc')->paginate(10);
+        $data = Formulir::all()->sortByDesc('created_at');
         foreach ($data as $key => $number) {
             $number->nomor_baris = $key + 1;
         }

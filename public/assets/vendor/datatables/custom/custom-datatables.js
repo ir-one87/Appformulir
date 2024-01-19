@@ -1,7 +1,7 @@
 // Basic DataTable
 $(function () {
     $("#basicExample").DataTable({
-        iDisplayLength: 10,
+        iDisplayLength: 20,
         language: {
             lengthMenu: "Display _MENU_ Records Per Page",
             info: "Showing Page _PAGE_ of _PAGES_",
@@ -14,7 +14,11 @@ $(function () {
     $("#copy-print-csv").DataTable({
         dom: "Bfrtip",
         buttons: ["excelHtml5", "csvHtml5", "print"],
-        iDisplayLength: 10,
+        iDisplayLength: 20,
+        language: {
+            lengthMenu: "Display _MENU_ Records Per Page",
+            info: "Halaman _PAGE_ of _PAGES_",
+        },
     });
 });
 
@@ -43,7 +47,7 @@ $(function () {
 // Row Selection
 $(function () {
     $("#rowSelection").DataTable({
-        iDisplayLength: 4,
+        iDisplayLength: 15,
         language: {
             lengthMenu: "Display _MENU_ Records Per Page",
             info: "Showing Page _PAGE_ of _PAGES_",
@@ -63,7 +67,7 @@ $(function () {
 // Highlighting rows and columns
 $(function () {
     $("#highlightRowColumn").DataTable({
-        iDisplayLength: 4,
+        iDisplayLength: 15,
         language: {
             lengthMenu: "Display _MENU_ Records Per Page",
         },

@@ -21,14 +21,6 @@ class RekapController extends Controller
             ->get();
 
         return view('rekap.list_perOPD', compact('list_opd', 'dataPendaftar', 'selectedOpd'));
-
-        // $organisasi = Organisasi::all();
-        // $formulirs = Formulir::all();
-        // // Menambahkan nomor baris pada setiap elemen formulir
-        // foreach ($formulirs as $key => $formulir) {
-        //     $formulir->line_number = $key + 1;
-        // }
-        // return view('rekap.list_perOPD', compact('formulirs', 'organisasi'));
     }
 
     public function rekap_opd()
