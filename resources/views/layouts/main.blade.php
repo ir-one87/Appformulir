@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/logo_sulbar.png') }}" />
 
     <!-- Title -->
-    <title>App | Formulir Permohonan Penerbitan SE</title>
+    <title>App | E-Formulir Permohonan Penerbitan SE</title>
 
 
     <!-- *************
@@ -69,7 +69,7 @@
                 style="display: flex; align-items: flex-end; justify-content: center; padding: 5px;">
                 <a href="index.html" class="logo">
                     <img src="{{ asset('assets/img/logo_sulbar.png') }}" alt="Bootstrap Gallery" />
-                    <h4 class="text-white">App Formulir</h4>
+                    <h4 class="text-white"> E-Formulir</h4>
                 </a>
             </div>
             <!-- Sidebar brand end  -->
@@ -153,6 +153,7 @@
     <script src="{{ asset('assets/vendor/datatables/html5.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables/buttons.print.min.js') }}"></script>
 
+    {{--
     <!-- Polyfill JS -->
     <script src="{{ asset('assets/vendor/polyfill/polyfill.min.js') }}"></script>
 
@@ -161,7 +162,7 @@
     <script src="{{ asset('assets/vendor/apex/admin/visitors.js') }}"></script>
     <script src="{{ asset('assets/vendor/apex/admin/deals.js') }}"></script>
     <script src="{{ asset('assets/vendor/apex/admin/income.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apex/admin/customers.js') }}"></script>
+    <script src="{{ asset('assets/vendor/apex/admin/customers.js') }}"></script> --}}
 
     <!-- Summernote JS -->
     <script src="{{ asset('assets/vendor/summernote/summernote-bs4.js') }}"></script>
@@ -182,7 +183,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function konfirmasiHapus(itemId) {
+        function konfirmasiHapus(dataId) {
         Swal.fire({
             title: 'Konfirmasi Hapus',
             text: 'Apakah kamu yakin ingin menghapus?',
@@ -193,7 +194,7 @@
             confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.isConfirmed) {
-                var formId = 'hapusForm_' + itemId;
+                var formId = 'hapusForm_' + dataId;
             document.getElementById(formId).submit();
             }
         });

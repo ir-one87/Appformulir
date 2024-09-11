@@ -18,11 +18,11 @@ class dummyUser extends Seeder
     {
         $userdata = [
             [
-                'name' => 'Administrator',
-                'email' => 'admin@gmail.com',
+                'name' => 'AdminSulbar',
+                'email' => 'admin@sulbarprov.co.id',
                 'role' => 'admin',
                 'opd_id' => '0',
-                'password' => Hash::make('AdminKominfo@')
+                'password' => Hash::make('AdminSulbar2024')
             ],
 
         ];

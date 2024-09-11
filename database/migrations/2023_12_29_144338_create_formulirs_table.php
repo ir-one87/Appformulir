@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama_lengkap');
             $table->foreignId('instansi_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('nik');
+            $table->string('nik', 255);
             $table->string('jabatan');
             $table->string('unit_kerja');
-            $table->string('no_hp');
+            $table->string('no_hp', 255);
             $table->string('per_email');
             $table->string('per_sertifikat');
             $table->string('rekomendasi');

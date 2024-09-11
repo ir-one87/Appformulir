@@ -87,12 +87,12 @@ class FormulirController extends Controller
         ]);
         //menyimpan file uplaod kedalam direktori
         $file = $request->file('per_email');
-        $name_file = Str::random(20) . "." .  $file->getClientOriginalExtension();
+        $name_file = time() . '_' . $request->nama_lengkap . "." .  $file->getClientOriginalExtension();
         $tujuan_upload = public_path('file_upload/permohonanEmail');
         $file->move($tujuan_upload, $name_file);
 
         $file = $request->file('per_sertifikat');
-        $name_file1 = Str::random(20) . "." . $file->getClientOriginalExtension();
+        $name_file1 = time() . '_' . $request->nama_lengkap . "." . $file->getClientOriginalExtension();
         $tujuan_upload = public_path('file_upload/permohonanSE');
         $file->move($tujuan_upload, $name_file1);
 
@@ -187,12 +187,12 @@ class FormulirController extends Controller
 
         //menyimpan file uplaod kedalam direktori
         $file = $request->file('per_email');
-        $name_file = Str::random(20) . "." .  $file->getClientOriginalExtension();
+        $name_file = time() . '_' . $request->nama_lengkap . "." .  $file->getClientOriginalExtension();
         $tujuan_upload = public_path('file_upload/permohonanEmail');
         $file->move($tujuan_upload, $name_file);
 
         $file = $request->file('per_sertifikat');
-        $name_file1 = Str::random(20) . "." . $file->getClientOriginalExtension();
+        $name_file1 = time() . '_' . $request->nama_lengkap . "." . $file->getClientOriginalExtension();
         $tujuan_upload = public_path('file_upload/permohonanSE');
         $file->move($tujuan_upload, $name_file1);
 
@@ -243,30 +243,7 @@ class FormulirController extends Controller
         return Redirect::back();
     }
 
-    // public function viewPdf($encodedFileName)
-    // {
-    //     $filePath = public_path('file_upload/rekomendasi' . $encodedFileName);
 
-    //     if (file_exists($filePath)) {
-    //         $jsonContent = file_get_contents($filePath);
-    //         $data = json_decode($jsonContent, true);
-
-    //         if (isset($data['encoded_pdf'])) {
-    //             $base64Encoded = $data['encoded_pdf'];
-
-    //             // Decode Base64 back to binary data
-    //             $pdfContent = base64_decode($base64Encoded);
-
-    //             // Menyajikan file PDF langsung ke browser
-    //             return Response::make($pdfContent, 200, [
-    //                 'Content-Type' => 'application/pdf',
-    //                 'Content-Disposition' => 'inline; filename="file.pdf"',
-    //             ]);
-    //         }
-    //     }
-
-    //     return abort(404);
-    // }
 
     public function show_pdf($id)
     {

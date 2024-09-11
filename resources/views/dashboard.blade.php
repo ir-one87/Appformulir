@@ -78,7 +78,7 @@
         <div class="table-container">
             <div class="t-header">List Permohonan Pendaftaran SE</div>
             <div class="table-responsive">
-                <table id="copy-print-csv" class="table custom-table">
+                <table id="basicExample" class="table custom-table">
                     <thead>
                         <tr>
                             <th>No</th>
