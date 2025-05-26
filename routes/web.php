@@ -11,6 +11,7 @@ use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\OrganisasiController;
 use Illuminate\Routing\RouteGroup;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,9 +52,9 @@ Route::middleware(['auth',])->group(function () {
     Route::get('/form/edit/{id}', [FormulirController::class, 'edit_form'])->name('edit_form');
     Route::post('/formulir/save', [FormulirController::class, 'save_form'])->name('save_form');
     Route::patch('/form/update/{formulir}', [FormulirController::class, 'update_form'])->name('update_form');
-    Route::delete('/form/delete/{formulir}', [FormulirController::class, 'delete_form'])->name('delete_form');
-    Route::get('/view-pdf/{encodedFileName}', [FormulirController::class, 'viewPdf'])->name('viewPdf');
-    Route::get('/show/{formulir}', [FormulirController::class, 'show_pdf'])->name('show_pdf')->middleware('userAkses:admin');
+    Route::delete('/form/delete/{formulir}', [FormulirController::class, 'delete_form'])->name('delete_form')->middleware('userAkses:admin');
+    Route::get('/download/{filename}', [FormulirController::class, 'downloadFile'])->name('download')->middleware('userAkses:admin');
+    Route::get('/show/{file}', [FormulirController::class, 'show_pdf'])->name('show_pdf')->middleware('userAkses:admin');
     Route::get('/update/status/{id}', [FormulirController::class, 'update_status'])->name('update_status')->middleware('userAkses:admin');
     Route::get('/update/statusTte/{id}', [FormulirController::class, 'status_tte'])->name('status_tte')->middleware('userAkses:admin');
     Route::patch('/update/statusberkas/{id}', [FormulirController::class, 'status_tolak'])->name('status_tolak')->middleware('userAkses:admin');

@@ -12,15 +12,35 @@ $(function () {
 // FPrint/Copy/CSV
 $(function () {
     $("#copy-print-csv").DataTable({
-        dom: "Bfrtip",
-        buttons: ["excelHtml5", "csvHtml5", "print"],
-        iDisplayLength: 20,
+        dom: "Bfrtip", // Struktur tampilan tombol
+        buttons: ["excelHtml5", "csvHtml5", "print"], // Tombol export yang diaktifkan
+        deferRender: true, // Menunda rendering baris hingga diperlukan
+        stateSave: true, // Simpan kondisi tabel (misal halaman, pencarian, dll.)
+        pageLength: 20, // Batasi jumlah baris per halaman
         language: {
             lengthMenu: "Display _MENU_ Records Per Page",
-            info: "Halaman _PAGE_ of _PAGES_",
+            info: "Halaman _PAGE_ dari _PAGES_",
         },
+        searching: true, // Aktifkan pencarian
+        ordering: true, // Aktifkan pengurutan
+        info: true, // Tampilkan info jumlah data
+        processing: true, // Tampilkan indikator pemrosesan
+        serverSide: false, // Gunakan client-side untuk dataset kecil
+        paging: true, // Aktifkan paginasi
     });
 });
+
+// $(function () {
+//     $("#copy-print-csv").DataTable({
+//         dom: "Bfrtip",
+//         buttons: ["excelHtml5", "csvHtml5", "print"],
+//         iDisplayLength: 20,
+//         language: {
+//             lengthMenu: "Display _MENU_ Records Per Page",
+//             info: "Halaman _PAGE_ of _PAGES_",
+//         },
+//     });
+// });
 
 // Fixed Header
 $(document).ready(function () {

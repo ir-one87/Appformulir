@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class Formulir extends Model
 {
@@ -31,7 +32,12 @@ class Formulir extends Model
     // Accessor untuk mendekripsi NIK saat diakses
     public function getNikAttribute($value)
     {
-        return Crypt::decryptString($value);
+        try {
+            return Crypt::decryptString($value);
+        } catch (DecryptException $e) {
+            // Jika tidak bisa didekripsi, kembalikan data asli (plaintext)
+            return $value;
+        }
     }
 
     // Mutator untuk mengenkripsi no_hp saat disimpan
@@ -43,6 +49,11 @@ class Formulir extends Model
     // Accessor untuk mendekripsi no_hp saat diakses
     public function getNoHpAttribute($value)
     {
-        return Crypt::decryptString($value);
+        try {
+            return Crypt::decryptString($value);
+        } catch (DecryptException $e) {
+            // Jika tidak bisa didekripsi, kembalikan data asli (plaintext)
+            return $value;
+        }
     }
 }

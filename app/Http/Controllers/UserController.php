@@ -13,7 +13,7 @@ class UserController extends Controller
     public function user_opd()
     {
 
-        $users = User::paginate(20);
+        $users = User::all();
         $users->transform(function ($user, $key) {
             $user->index = $key + 1;
             return $user;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 18, 2024 at 05:04 AM
+-- Generation Time: Sep 11, 2024 at 03:58 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `formulirs` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama_lengkap` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `instansi_id` bigint UNSIGNED NOT NULL,
-  `nik` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nik` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jabatan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `unit_kerja` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_hp` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_hp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `per_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `per_sertifikat` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rekomendasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `opd_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$9pgQtLFE7MXv7vT6/WcVS.AYYgg6rOjs7It1CMzraoAtYV6MdTarC', 'admin', 0, NULL, '2024-01-17 20:53:17', '2024-01-17 20:53:17');
+(1, 'AdminSulbar', 'admin@sulbarprov.co.id', NULL, '$2y$10$TSfU0itdmglEFAvrwuVFxuJfNEyt8uKRs5dY5H.Uva8BmAf5fwpcu', 'admin', 0, NULL, '2024-09-11 07:57:31', '2024-09-11 07:57:31');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

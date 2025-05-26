@@ -35,8 +35,8 @@
                             <h5></h5>
                             <p></p>
                         </div>
-                        <a href="#"><i class="icon-user1"></i> My Profile</a>
-                        <a href="#"><i class="icon-settings1"></i> Account Settings</a>
+                        {{-- <a href="#"><i class="icon-user1"></i> My Profile</a>
+                        <a href="#"><i class="icon-settings1"></i> Account Settings</a> --}}
                         <a href="{{ route('logout') }}"><i class="icon-log-out1"></i> Sign Out</a>
                     </div>
                 </div>

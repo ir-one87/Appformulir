@@ -5,7 +5,7 @@
 <!-- Row start -->
 <div class="row gutters">
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: rgb(113, 176, 242);">
             <div class="info-icon">
                 <i class="icon-user"></i>
             </div>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: rgb(253, 253, 43);">
             <div class="info-icon">
                 <i class="icon-home"></i>
             </div>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: rgb(52, 250, 55);">
             <div class="info-icon">
                 <i class="icon-beenhere"></i>
             </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: #db5019;">
             <div class="info-icon">
                 <i class="icon-activity"></i>
             </div>
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: rgb(52, 250, 55);">
             <div class="info-icon">
                 <i class="icon-style"></i>
             </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
-        <div class="info-stats4">
+        <div class="info-stats4" style="background-color: rgb(29, 154, 222);">
             <div class="info-icon">
                 <i class="icon-activity"></i>
             </div>

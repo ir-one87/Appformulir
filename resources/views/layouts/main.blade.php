@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/datatables/dataTables.bs4-custom.css') }}" />
     <link href="{{ asset('assets/vendor/datatables/buttons.bs.css') }}" rel="stylesheet" />
 
+
     <!-- Summernote CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote-bs4.css') }}" />
 
@@ -153,16 +154,6 @@
     <script src="{{ asset('assets/vendor/datatables/html5.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables/buttons.print.min.js') }}"></script>
 
-    {{--
-    <!-- Polyfill JS -->
-    <script src="{{ asset('assets/vendor/polyfill/polyfill.min.js') }}"></script>
-
-    <!-- Apex Charts -->
-    <script src="{{ asset('assets/vendor/apex/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apex/admin/visitors.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apex/admin/deals.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apex/admin/income.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apex/admin/customers.js') }}"></script> --}}
 
     <!-- Summernote JS -->
     <script src="{{ asset('assets/vendor/summernote/summernote-bs4.js') }}"></script>
