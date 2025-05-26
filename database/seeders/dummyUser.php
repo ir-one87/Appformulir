@@ -22,7 +22,7 @@ class dummyUser extends Seeder
                 'email' => 'admin@sulbarprov.co.id',
                 'role' => 'admin',
                 'opd_id' => '0',
-                'password' => Hash::make('@lhamdulill4H')
+                'password' => Hash::make('@lhamdulill4H87')
             ],
 
         ];
