@@ -75,7 +75,6 @@
                                             class="btn btn-primary btn-sm">Lihat Berkas</a>
 
                                     </td>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">SK Jabatan / Pengangkatan</th>
